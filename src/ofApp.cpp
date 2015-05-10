@@ -5,18 +5,24 @@ void ofApp::setup(){
     //headless app needs to be restrained:
     ofSetFrameRate(30);
     
+    //load config.xml
+    if(!config.loadFile("config.xml"))
+    {
+        ofLog() << "Failed to load config.xml";
+    }
+    
     //this is the string we're looking for in serial devices
     targetDeviceName = "Arduino";
     
     //connect right off the bat
     bool connected = autoDetect();
     
-    // open an outgoing connection to HOST:PORT
-    sender.setup(HOST, PORT);
+    string ipAddress = config.getValue("TARGETIP", "127.0.0.1");
     
-//    udpConnection.Create();
-//    udpConnection.Connect("127.0.0.1",12345);
-//    udpConnection.SetNonBlocking(true);
+    // open an outgoing connection to HOST:PORT
+    sender.setup(ipAddress.c_str(), PORT);
+    
+
 }
 
 //----------------------------------------------------------------

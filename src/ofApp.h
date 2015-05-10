@@ -4,8 +4,8 @@
 #include "ofxSerial.h"
 #include "ofxNetwork.h"
 #include "ofxOsc.h"
+#include "ofxXmlSettings.h"
 
-#define HOST "localhost"
 #define PORT 12345
 
 class ofApp : public ofBaseApp{
@@ -18,9 +18,9 @@ class ofApp : public ofBaseApp{
     
     ofx::IO::SerialDevice device;
     string targetDeviceName;
-//    ofxUDPManager udpConnection;
     
     ofxOscSender sender;
+    ofxXmlSettings config;
 
 		
 };

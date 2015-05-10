@@ -1,3 +1,4 @@
 ofxNetwork
 ofxIO
 ofxSerial
+ofxOsc

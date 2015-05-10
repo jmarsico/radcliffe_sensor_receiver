@@ -178,6 +178,8 @@
 		A3B73248CEBEBB4479B4F1BB /* AccessExpireCache.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AccessExpireCache.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/AccessExpireCache.h; sourceTree = SOURCE_ROOT; };
 		A9ABBF4A56F7A5AAB5A5DC5D /* snappy-sinksource.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = "snappy-sinksource.h"; path = "../../../addons/ofxIO/libs/snappy/src/snappy-sinksource.h"; sourceTree = SOURCE_ROOT; };
 		B608BB92EA071BC82EB9F62F /* RecursiveDirectoryIteratorImpl.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RecursiveDirectoryIteratorImpl.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/RecursiveDirectoryIteratorImpl.h; sourceTree = SOURCE_ROOT; };
+		BA0A70121AFFCB9C00FF9A18 /* addons.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = addons.make; sourceTree = "<group>"; };
+		BA0A70131AFFCBB000FF9A18 /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = config.xml; path = bin/data/config.xml; sourceTree = "<group>"; };
 		BAB475D91AF90B2A00E4A78C /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
 		BAB475DA1AF90B2A00E4A78C /* ofxXmlSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		BAB475DC1AF90B2A00E4A78C /* tinyxml.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
@@ -801,6 +803,8 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
+				BA0A70131AFFCBB000FF9A18 /* config.xml */,
+				BA0A70121AFFCB9C00FF9A18 /* addons.make */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
