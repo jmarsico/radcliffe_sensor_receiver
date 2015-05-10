@@ -52,11 +52,6 @@ void ofApp::update(){
             sz = device.readBytes(buffer, 1024);
             ofLog() << "number of bytes received: " << sz;
             
-            for (int i = 0; i < sz; ++i)
-            {
-                std::cout << buffer[i];
-        
-            }
         }
     }
     
@@ -69,12 +64,6 @@ void ofApp::update(){
         sender.sendMessage(error);
         autoDetect();
         ofSleepMillis(5000);
-    }
-    sz = 20;
-    
-    for(int i = 0; i < sz; i++)
-    {
-        buffer[i] = (uint8_t)ofRandom(2);
     }
     
     //if you receive all twenty values, send it to the mothership
