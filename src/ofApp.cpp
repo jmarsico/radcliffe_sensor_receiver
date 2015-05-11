@@ -47,7 +47,7 @@ void ofApp::onNewMessage(string & message)
     
     if(input.size() == 21)
     {
-        ofLog() << "yeah!";
+        ofLog() << ofGetFrameRate();
 //        
 //        for(int i = 0; i < 20; i++)
 //        {
