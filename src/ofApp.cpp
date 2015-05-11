@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     //headless app needs to be restrained:
-    ofSetFrameRate(30);
+    ofSetFrameRate(60);
     
     //load config.xml
     if(!config.loadFile("config.xml"))
@@ -40,18 +40,19 @@ void ofApp::update(){
 
 void ofApp::onNewMessage(string & message)
 {
-    cout << "onNewMessage, message: " << message << "\n";
+//    cout << "onNewMessage, message: " << message << "\n";
     
     vector<string> input = ofSplitString(message, ",");
     
     
     if(input.size() == 21)
     {
-        
-        for(int i = 0; i < 20; i++)
-        {
-            
-        }
+        ofLog() << "yeah!";
+//        
+//        for(int i = 0; i < 20; i++)
+//        {
+//            
+//        }
     }
 }
 
