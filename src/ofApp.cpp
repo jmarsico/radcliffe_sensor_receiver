@@ -22,7 +22,7 @@ void ofApp::setup(){
     sender.setup(ipAddress.c_str(), PORT);
     
     serial.listDevices();
-    serial.setup("/dev/tty.usbmodem1411", 57600);
+    serial.setup(0, 57600);
     //	serial.startContinuousRead();
     ofAddListener(serial.NEW_MESSAGE,this,&ofApp::onNewMessage);
     
