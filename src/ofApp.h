@@ -1,10 +1,10 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxSerial.h"
 #include "ofxNetwork.h"
 #include "ofxOsc.h"
 #include "ofxXmlSettings.h"
+#include "ofxSimpleSerial.h"
 
 #define PORT 12345
 
@@ -14,13 +14,20 @@ class ofApp : public ofBaseApp{
     void setup();
     void update();
     
-    bool autoDetect();
+//    bool autoDetect();
+    void sendToMaster();
+    void		onNewMessage(string & message);
     
-    ofx::IO::SerialDevice device;
-    string targetDeviceName;
+    ofxSimpleSerial	serial;
+    
+
     
     ofxOscSender sender;
     ofxXmlSettings config;
-
+    
+    string		message;
+    
+    
+    
 		
 };

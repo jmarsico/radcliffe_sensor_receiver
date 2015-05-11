@@ -12,16 +12,21 @@ void ofApp::setup(){
     }
     
     //this is the string we're looking for in serial devices
-    targetDeviceName = "Arduino";
     
     //connect right off the bat
-    bool connected = autoDetect();
+//    bool connected = autoDetect();
     
     string ipAddress = config.getValue("TARGETIP", "127.0.0.1");
     
     // open an outgoing connection to HOST:PORT
     sender.setup(ipAddress.c_str(), PORT);
     
+    serial.listDevices();
+    serial.setup("/dev/tty.usbmodem1411", 57600);
+    //	serial.startContinuousRead();
+    ofAddListener(serial.NEW_MESSAGE,this,&ofApp::onNewMessage);
+    
+    message = "";
 
 }
 
@@ -29,53 +34,41 @@ void ofApp::setup(){
 //----------------------------------------------------------------
 //----------------------------------------------------------------
 void ofApp::update(){
+    serial.read();
     
-    ofxOscMessage m;
-    ofxOscMessage error;
-    std::size_t sz;
-    uint8_t buffer[1024];
+}
+
+void ofApp::onNewMessage(string & message)
+{
+    cout << "onNewMessage, message: " << message << "\n";
     
-    if(!device.isOpen())
+    vector<string> input = ofSplitString(message, ",");
+    
+    
+    if(input.size() == 21)
     {
-        error.setAddress("/noArduino");
-        sender.sendMessage(error);
-        autoDetect();
-        ofSleepMillis(5000);
-    }
-    
-    // The serial device can throw exeptions.
-    try
-    {
-        // Read all bytes from the device;
-        while (device.available() > 0)
+        
+        for(int i = 0; i < 20; i++)
         {
-            sz = device.readBytes(buffer, 1024);
-            ofLog() << "number of bytes received: " << sz;
             
         }
     }
+}
+
     
-    //if serial connection fails, start looking for new serial connection
-    catch (const std::exception& exc)
-    {
+void ofApp::sendToMaster(){
+
         
-        ofLogError("ofApp::serialReceiver") << exc.what();
-        error.setAddress("/error");
-        sender.sendMessage(error);
-        autoDetect();
-        ofSleepMillis(5000);
-    }
+//        m.setAddress("/sensors");
     
-    //if you receive all twenty values, send it to the mothership
-    if(sz == 20)
-    {
-        m.setAddress("/sensors");
-        for(int i = 0; i < sz; i++)
-        {
-            m.addIntArg((int)buffer[i]);
-        }
-        sender.sendMessage(m);
-    }
+    
+     
+//            m.addIntArg(buffer[i]);
+        
+        
+    
+//        sender.sendMessage(m);
+//    }
     
 }
 
@@ -83,47 +76,47 @@ void ofApp::update(){
 //----------------------------------------------------------------
 //----------------------------------------------------------------
 //----------------------------------------------------------------
-bool ofApp::autoDetect(){
-    
-    ofx::IO::SerialDeviceInfo::DeviceList devicesInfo = ofx::IO::SerialDeviceUtils::listDevices();
-    
-    ofLogNotice("ofApp::autoDetect") << "Finding devices...";
-    
-    int deviceIndx = -1;
-    string deviceDescription;
-    bool success = false;
-    
-    for (std::size_t i = 0; i < devicesInfo.size(); ++i)
-    {
-        string devDesc = devicesInfo[i].getDescription();
-        ofLog() << devDesc;
-        if(devDesc.find(targetDeviceName) != string::npos)
-        {
-            deviceDescription = devDesc;
-            ofLogNotice("ofApp::autoDetect") << "detected device: " <<deviceDescription;
-            deviceIndx = i;
-        }
-    }
-    
-    //if we found a match
-    if(deviceIndx >= 0)
-    {
-        //tell us the device number and connect to it.
-        ofLogNotice("ofApp::autoDetect") << deviceDescription << " is device: " << deviceIndx;
-        success = device.setup(devicesInfo[deviceIndx], 9600);
-        
-    }else{
-        ofLogNotice("ofApp::autoDetect") << targetDeviceName << " not found";
-    }
-    
-    //if connection was successful, tell us and exit
-    if(success)
-    {
-        ofLogNotice("ofApp::autoDetect") << "successfully connected to " << deviceDescription;
-        return true;
-        
-    } else {
-        ofLogNotice("ofApp::autoDetect") << "failed to connect to " << targetDeviceName;
-        return false;
-    }
-}
+//bool ofApp::autoDetect(){
+//    
+//    ofx::IO::SerialDeviceInfo::DeviceList devicesInfo = ofx::IO::SerialDeviceUtils::listDevices();
+//    
+//    ofLogNotice("ofApp::autoDetect") << "Finding devices...";
+//    
+//    int deviceIndx = -1;
+//    string deviceDescription;
+//    bool success = false;
+//    
+//    for (std::size_t i = 0; i < devicesInfo.size(); ++i)
+//    {
+//        string devDesc = devicesInfo[i].getDescription();
+//        ofLog() << devDesc;
+//        if(devDesc.find(targetDeviceName) != string::npos)
+//        {
+//            deviceDescription = devDesc;
+//            ofLogNotice("ofApp::autoDetect") << "detected device: " <<deviceDescription;
+//            deviceIndx = i;
+//        }
+//    }
+//    
+//    //if we found a match
+//    if(deviceIndx >= 0)
+//    {
+//        //tell us the device number and connect to it.
+//        ofLogNotice("ofApp::autoDetect") << deviceDescription << " is device: " << deviceIndx;
+//        success = device.setup(devicesInfo[deviceIndx], 9600);
+//        
+//    }else{
+//        ofLogNotice("ofApp::autoDetect") << targetDeviceName << " not found";
+//    }
+//    
+//    //if connection was successful, tell us and exit
+//    if(success)
+//    {
+//        ofLogNotice("ofApp::autoDetect") << "successfully connected to " << deviceDescription;
+//        return true;
+//        
+//    } else {
+//        ofLogNotice("ofApp::autoDetect") << "failed to connect to " << targetDeviceName;
+//        return false;
+//    }
+//}

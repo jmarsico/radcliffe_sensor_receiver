@@ -31,6 +31,7 @@
 		960D20B191346612D5C05A6A /* ofxTCPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF88F02779DD820913ACEA06 /* ofxTCPClient.cpp */; };
 		B3E6D60405574847412D7441 /* HiddenFileFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCAF85B857266C511DB50341 /* HiddenFileFilter.cpp */; };
 		B7E0003B826CBA379A3F66E5 /* PathFilterCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5114D2AF276E4E6E9A67B342 /* PathFilterCollection.cpp */; };
+		BA0A702C1B00316100FF9A18 /* ofxSimpleSerial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0A702A1B00316100FF9A18 /* ofxSimpleSerial.cpp */; };
 		BAB475E01AF90B2A00E4A78C /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB475D91AF90B2A00E4A78C /* ofxXmlSettings.cpp */; };
 		BAB475E11AF90B2A00E4A78C /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB475DC1AF90B2A00E4A78C /* tinyxml.cpp */; };
 		BAB475E21AF90B2A00E4A78C /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB475DE1AF90B2A00E4A78C /* tinyxmlerror.cpp */; };
@@ -180,6 +181,8 @@
 		B608BB92EA071BC82EB9F62F /* RecursiveDirectoryIteratorImpl.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RecursiveDirectoryIteratorImpl.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/RecursiveDirectoryIteratorImpl.h; sourceTree = SOURCE_ROOT; };
 		BA0A70121AFFCB9C00FF9A18 /* addons.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = addons.make; sourceTree = "<group>"; };
 		BA0A70131AFFCBB000FF9A18 /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = config.xml; path = bin/data/config.xml; sourceTree = "<group>"; };
+		BA0A702A1B00316100FF9A18 /* ofxSimpleSerial.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSimpleSerial.cpp; sourceTree = "<group>"; };
+		BA0A702B1B00316100FF9A18 /* ofxSimpleSerial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxSimpleSerial.h; sourceTree = "<group>"; };
 		BAB475D91AF90B2A00E4A78C /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
 		BAB475DA1AF90B2A00E4A78C /* ofxXmlSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		BAB475DC1AF90B2A00E4A78C /* tinyxml.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
@@ -557,6 +560,24 @@
 			name = include;
 			sourceTree = "<group>";
 		};
+		BA0A70281B00316100FF9A18 /* ofxSimpleSerial */ = {
+			isa = PBXGroup;
+			children = (
+				BA0A70291B00316100FF9A18 /* src */,
+			);
+			name = ofxSimpleSerial;
+			sourceTree = "<group>";
+		};
+		BA0A70291B00316100FF9A18 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BA0A702A1B00316100FF9A18 /* ofxSimpleSerial.cpp */,
+				BA0A702B1B00316100FF9A18 /* ofxSimpleSerial.h */,
+			);
+			name = src;
+			path = ../../../addons/ofxSimpleSerial/src;
+			sourceTree = "<group>";
+		};
 		BAB475D71AF90B2A00E4A78C /* ofxXmlSettings */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,6 +714,7 @@
 				BDBA4E6BCE9C79945EF60873 /* ofxSerial */,
 				BAB475D71AF90B2A00E4A78C /* ofxXmlSettings */,
 				BAB475E51AFE2D8200E4A78C /* ofxOsc */,
+				BA0A70281B00316100FF9A18 /* ofxSimpleSerial */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -948,6 +970,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				BA0A702C1B00316100FF9A18 /* ofxSimpleSerial.cpp in Sources */,
 				BAB4761A1AFE2D8200E4A78C /* OscReceivedElements.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				960D20B191346612D5C05A6A /* ofxTCPClient.cpp in Sources */,
