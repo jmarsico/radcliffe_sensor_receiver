@@ -1,4 +1,4 @@
 ofxNetwork
-ofxIO
-ofxSerial
+ofxSimpleSerial
 ofxOsc
+ofxXmlSettings
