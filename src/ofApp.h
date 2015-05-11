@@ -15,7 +15,7 @@ class ofApp : public ofBaseApp{
     void update();
     
 //    bool autoDetect();
-    void sendToMaster();
+//    void sendToMaster();
     void		onNewMessage(string & message);
     
     ofxSimpleSerial	serial;

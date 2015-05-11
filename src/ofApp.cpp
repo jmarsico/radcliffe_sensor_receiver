@@ -43,35 +43,36 @@ void ofApp::onNewMessage(string & message)
 //    cout << "onNewMessage, message: " << message << "\n";
     
     vector<string> input = ofSplitString(message, ",");
-    
+    ofxOscMessage m;
     
     if(input.size() == 21)
     {
         ofLog() << ofGetFrameRate();
-//        
-//        for(int i = 0; i < 20; i++)
-//        {
-//            
-//        }
+        m.setAddress("/sensors");
+        for(int i = 0; i < 20; i++)
+        {
+            m.addIntArg(ofToInt(input[i]));
+        }
+        sender.sendMessage(m);
     }
 }
 
     
-void ofApp::sendToMaster(){
-
-        
-//        m.setAddress("/sensors");
-    
-    
-     
-//            m.addIntArg(buffer[i]);
-        
-        
-    
-//        sender.sendMessage(m);
-//    }
-    
-}
+//void ofApp::sendToMaster(){
+//
+//        
+////        m.setAddress("/sensors");
+//    
+//    
+//     
+////            m.addIntArg(buffer[i]);
+//        
+//        
+//    
+////        sender.sendMessage(m);
+////    }
+//    
+//}
 
 
 //----------------------------------------------------------------
