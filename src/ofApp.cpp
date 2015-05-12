@@ -52,6 +52,7 @@ void ofApp::onNewMessage(string & message)
         for(int i = 0; i < 20; i++)
         {
             m.addIntArg(ofToInt(input[i]));
+            if(ofToInt(input[i]) == 0) ofLog() << "hit " << i;
         }
         sender.sendMessage(m);
     }
